@@ -1,0 +1,100 @@
+parser: babel-eslint
+
+extends:
+  - airbnb-base
+  - plugin:flowtype/recommended
+
+plugins:
+  - flowtype
+
+parserOptions:
+  ecmaVersion: 8
+  ecmaFeatures:
+    jsx: true
+    experimentalObjectRestSpread: true
+
+env:
+  node: false
+  browser: true
+
+rules:
+
+  no-multi-assign: off
+
+  semi:
+    - error
+    - never
+
+  no-unused-expressions: off
+
+  object-curly-newline:
+    - error
+    - consistent: true
+
+  consistent-return: off
+
+  function-paren-newline:
+    - error
+    - consistent
+
+  no-confusing-arrow: off
+
+  flowtype/boolean-style:
+    - error
+    - boolean
+
+  flowtype/define-flow-type: error
+
+  flowtype/delimiter-dangle:
+    - error
+    - always-multiline
+
+  flowtype/generic-spacing:
+    - error
+    - never
+
+  flowtype/no-dupe-keys: error
+
+  flowtype/no-primitive-constructor-types: error
+
+  flowtype/no-weak-types:
+    - error
+    - any: false
+      Object: false
+      Function: true
+
+  flowtype/object-type-delimiter:
+    - error
+    - comma
+
+  flowtype/require-valid-file-annotation:
+    - error
+    - never
+    - annotationStyle: block
+
+  flowtype/semi:
+    - error
+    - never
+
+  flowtype/space-after-type-colon:
+    - error
+    - always
+    - allowLineBreak: false
+
+  flowtype/space-before-generic-bracket:
+    - error
+    - never
+
+  flowtype/space-before-type-colon:
+    - error
+    - never
+
+  flowtype/type-id-match:
+    - error
+    - ^[A-Z]
+
+  flowtype/union-intersection-spacing:
+    - error
+    - always
+
+  flowtype/use-flow-type: error

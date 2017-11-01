@@ -1,0 +1,44 @@
+{
+  "name": "qick-action",
+  "version": "0.0.1",
+  "description": "",
+  "public": true,
+  "main": "lib/index.js",
+  "files": [
+    "README.md",
+    "LICENSE.md",
+    "lib",
+    "src"
+  ],
+  "scripts": {
+    "lint": "eslint .",
+    "flow": "flow",
+    "precommit": "yarn lint && yarn flow",
+    "build": "shx rm -f lib/bundle.js && rollup -c",
+    "preversion": "git checkout master && yarn precommit",
+    "postversion": "yarn run build && yarn publish && git push origin master --tags"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.1",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-flow": "^6.23.0",
+    "eslint": "^4.10.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-flowtype": "^2.39.1",
+    "eslint-plugin-import": "^2.8.0",
+    "flow-bin": "^0.57.3",
+    "husky": "^0.14.3",
+    "rollup": "^0.50.0",
+    "rollup-plugin-babel": "^3.0.2",
+    "shx": "^0.2.2"
+  },
+  "repository": "git@github.com:bigslycat/qick-action.git",
+  "author": {
+    "name": "Pavel Tereschenko",
+    "email": "me@pavlik.pro",
+    "url": "https://github.com/bigslycat"
+  },
+  "license": "MIT"
+}
