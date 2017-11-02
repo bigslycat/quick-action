@@ -39,5 +39,15 @@
     "email": "me@pavlik.pro",
     "url": "https://github.com/bigslycat"
   },
+  "keywords": [
+    "redux",
+    "actions",
+    "redux-act",
+    "redux-actions",
+    "flow",
+    "flowtype",
+    "reducer",
+    "reducers"
+  ],
   "license": "MIT"
 }
