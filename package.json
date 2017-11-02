@@ -16,8 +16,8 @@
     "test": "jest",
     "precommit": "yarn lint && yarn flow && yarn test",
     "build": "shx rm -f lib/bundle.js && rollup -c",
-    "prepublish": "git checkout master && yarn precommit && yarn run build",
-    "postpublish": "git push origin master --follow-tags"
+    "preversion": "git checkout master && yarn precommit",
+    "postversion": "yarn run build && npm publish && git push origin master --follow-tags"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
