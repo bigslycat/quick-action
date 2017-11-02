@@ -15,8 +15,8 @@
     "flow": "flow",
     "precommit": "yarn lint && yarn flow",
     "build": "shx rm -f lib/bundle.js && rollup -c",
-    "preversion": "git checkout master && yarn precommit",
-    "postversion": "yarn run build && yarn publish && git push origin master --tags"
+    "prepublish": "git checkout master && yarn precommit && yarn run build",
+    "postpublish": "yarn publish && git push origin master --tags"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
