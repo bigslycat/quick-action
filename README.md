@@ -1,4 +1,4 @@
-# quick-action
+# quick-action [![Build Status][status-img]][status-url]
 
 Flow support, no constants, really simple
 
@@ -73,3 +73,6 @@ store.dispatch(add(2)) // store.getState().counter === 3
 store.dispatch(setName({ name: 'joe' })) // store.getState().user === { username: 'joe', friends: [] }
 store.dispatch(addFriend({ name: 'vasya' })) // store.getState().user === { username: 'joe', friends: ['vasya'] }
 ```
+
+[status-url]: https://travis-ci.org/bigslycat/quick-action
+[status-img]: https://travis-ci.org/bigslycat/quick-action.svg?branch=master
