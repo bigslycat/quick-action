@@ -9,7 +9,7 @@ export const createReducer: CreateReducer = (initialState, ...handlers): any =>
       index < handlers.length;
       index += 1
     ) {
-      if (handlers[index].type === action.type) {
+      if (action && handlers[index].type === action.type) {
         return handlers[index].reducer(state, action)
       }
     }
