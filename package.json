@@ -1,6 +1,6 @@
 {
   "name": "quick-action",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Flow support, no constants, really simple",
   "public": true,
   "main": "lib/bundle.js",
