@@ -4,3 +4,9 @@ export {
   createAction,
   createReducer,
 } from '../src'
+
+export type {
+  Action,
+  ActionCreator,
+  Reducer,
+} from '../src/types'
