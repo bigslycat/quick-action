@@ -8,7 +8,7 @@ type Handler<S> = {
 }
 
 type CreateAction = (
-  <T: string, D, P>(type: T, createPayload: (data: D) => P) => {
+  <T: string, D, P>(type: T, createPayload?: (data: D) => P) => {
     (data: D): Action<T, P>,
     +type: T,
     +handle: <S>(reducer: Reducer<S, Action<T, P>>) => {
