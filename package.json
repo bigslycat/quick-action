@@ -16,7 +16,7 @@
     "precommit": "yarn lint && yarn flow",
     "build": "shx rm -f lib/bundle.js && rollup -c",
     "prepublish": "git checkout master && yarn precommit && yarn run build",
-    "postpublish": "git push origin master --tags"
+    "postpublish": "git push origin master --follow-tags"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -33,7 +33,7 @@
     "rollup-plugin-babel": "^3.0.2",
     "shx": "^0.2.2"
   },
-  "repository": "git@github.com:bigslycat/qick-action.git",
+  "repository": "git@github.com:bigslycat/quick-action.git",
   "author": {
     "name": "Pavel Tereschenko",
     "email": "me@pavlik.pro",
