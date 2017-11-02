@@ -1,24 +1,24 @@
-# qick-action
+# quick-action
 
 Flow support, no constants, really simple
 
 ## Installation
 
 ```
-npm install --save qick-action
+npm install --save quick-action
 ```
 
 or
 
 ```
-yarn add qick-action
+yarn add quick-action
 ```
 
 ## Usage
 
 ```js
 import { createStore, combineReducers } from 'redux'
-import { createAction, createReducer } from 'qick-action'
+import { createAction, createReducer } from 'quick-action'
 
 const increment = createAction('INCREMENT')
 const decrement = createAction('DECREMENT')
