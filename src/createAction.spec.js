@@ -17,9 +17,9 @@ describe('createAction', () => {
     })
 
     describe('When action creator called with arguments', () => {
-      it('Creates action without payload', () => {
+      it('Creates action with payload', () => {
         const inc = createAction('inc')
-        expect(inc()).toEqual({ type: 'inc' })
+        expect(inc('string payload')).toEqual({ type: 'inc', payload: 'string payload' })
       })
     })
   })
