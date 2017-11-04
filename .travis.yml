@@ -1,6 +1,15 @@
 language: node_js
 node_js:
-  - "8"
+  - '8'
 before_script:
   - yarn install
-script: yarn precommit
+script: yarn precommit && yarn run build
+deploy:
+  skip_cleanup: true
+  provider: npm
+  email: me@pavlik.pro
+  api_key:
+    secure: WOS4BFzSFtrsGzR8VXpN/buo6dGJZH1MQMWQeMIVL5rc/TkmlZLdZ7RPwpL1G0uDmJOWyRXcRD3rTK5518iLUFiWEeGQIS40gnRJFeXkoeIAIO4gItMFxqVEzAOkP/mWbD01GQc8YONmE5hFVtRfKDWO8q+QPlQvODmC4nSxhjq3kC1al3OC45JD0x+pGnP2AmPfMrm68rOBibjdu+ec+962856/Qwp0Rz2Y4Yvfh6midGKQ1GmHBCJ14DEsrqIMrIXyUSohqcaJvvHCNehzAbMj3yoSHhbc0o+S2bDQ9wl3yGI9D6yS0wJ0LDJR2Zr+eMnfjhO5B/0DKyw0asb6gEOBpicvAkfsfbhNjVv7eBeGi7lefau+83QvoaI7oeF1CV3U244h0wizGnenC6E9vsLaq9CpARtW3JA0QczxH0o/M7GHzMQx9LqAkLPp3MZbq6Pc884RE7IF/EHRxuAphSZfht+3BbVaBbH4dHbHQtZ/d6QaCWScgCym/J1dOBKoXCZQ8x1HQi/piwQRlh1RUUPoLKXsWPCUTSQbNDYPVEHeOqUl6SYlPM9TFFDaAzgPj2ecjsLlZGPvEr33lCE+LHfcZ1opZDGL4UilBVJoVl8I8HxwgvATSKD1UKVz1IxS0w/yyerkqFMi/sgS72CdJXpL/NaDrXPicp7H/zaXZOc=
+  on:
+    tags: true
+    branch: master
