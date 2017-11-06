@@ -2,8 +2,8 @@
 
 import type { CreateReducer } from './types'
 
-export const createReducer: CreateReducer = (initialState, ...handlers): any =>
-  (state = initialState, action) => {
+export const createReducer: CreateReducer = (init, ...handlers): any =>
+  (state = typeof init === 'function' ? init() : init, action) => {
     for (
       let index = 0;
       index < handlers.length;
