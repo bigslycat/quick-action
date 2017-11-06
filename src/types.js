@@ -1,34 +1,32 @@
 /* @flow */
 
+/* eslint max-len: off */
+
 export interface Action<T, P> { +type: T, +payload: P }
-export type ActionCreator<T, D, P = D> = (data: D) => Action<T, P>
 export type Reducer<S, A> = (state: S, action: A) => S
 
-type Handler<S> = {
-  +reducer: Reducer<S, any>,
-  +type: string,
+type Handler<S, A: Action<string, any>> = {
+  +reducer: Reducer<S, A>,
+  +type: $PropertyType<A, 'type'>,
 }
 
-export type CreateAction = (
-  <T: string, D, P>(type: T, createPayload: (data: D) => P) => {
-    +$call: ActionCreator<T, D, P>,
-    +type: T,
-    +handle: <S>(reducer: Reducer<S, Action<T, P>>) => {
-      +reducer: Reducer<S, Action<T, P>>,
-      +type: T,
-    },
-  }
-) & (
-  <T: string, D>(type: T) => {
-    +$call: ActionCreator<T, D>,
-    +type: T,
-    +handle: <S>(reducer: Reducer<S, Action<T, D>>) => {
-      +reducer: Reducer<S, Action<T, D>>,
-      +type: T,
-    },
-  }
-)
+export type ActionCreator<T: string, D, P = D> = {
+  +$call: (data: D) => Action<T, P>,
+  +handle: <S>(reducer: (state: S, action: Action<T, P>) => S) => Handler<S, Action<T, P>>,
+  +type: T,
+}
 
-export type CreateReducer =
-  <S>(initialState: S, ...handlers: Handler<S>[]) =>
-   <A>(state: S, action: A) => S
+export type CreateAction =
+  (<T: string, D, P>(type: T) => ActionCreator<T, D, P>) &
+  (<T: string, D, P>(type: T, createPayload: (data: D) => P) => ActionCreator<T, D, P>)
+
+type State = void | null | string | number | Object | State[]
+type StateConstructor<S: State> = () => S
+
+export type CreateReducer = (
+  <S: State>(createInitialState: StateConstructor<S>, ...handlers: Handler<S, Action<any, any>>[]) =>
+    Reducer<S, Action<string, any>>
+) & (
+  <S: State>(initialState: S, ...handlers: Handler<S, Action<any, any>>[]) =>
+    Reducer<S, Action<string, any>>
+)
