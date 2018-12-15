@@ -1,5 +1,7 @@
 # quick-action [![Build Status][status-img]][status-url]
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/bigslycat/quick-action.svg)](https://greenkeeper.io/)
+
 Flow support, no constants, really simple
 
 ## Installation
